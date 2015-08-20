@@ -9,7 +9,6 @@ from django.contrib.gis.geos import Point
 from django.core import validators
 from django.utils.translation import ugettext_lazy as _
 from django.db import models
-from pygeocoder import Geocoder
 
 
 def get_upload_file_name(instance, filename):
@@ -38,30 +37,14 @@ class Note(models.Model):
     city = models.CharField("市", max_length=10)
     address = models.CharField("地址", max_length=10)
     timestamp = models.DateTimeField(auto_now=True)
-    latitude = models.FloatField(blank=True)
-    longitude = models.FloatField(blank=True)
     image = models.ImageField(upload_to=get_upload_file_name,
                               help_text="Upload a zip file containing images, and they'll be imported into this gallery.")
 
     def __unicode__(self):
         return self.title
 
-    def save(self, *args, **kwargs):
-        #Geocode the address
-        results = Geocoder.geocode(self.province + self.city + self.address)
-        self.latitude = results[0].coordinates[0]
-        self.longitude = results[0].coordinates[1]
-        super(Note, self).save(*args, **kwargs)
-
     def get_image_url(self):
         print (self.image.url)
         return self.image.url
-
-    def get_location(self):
-        return Point(self.longitude, self.latitude)
-
-    def get_location_info(self):
-        return self.province + self.city + self.address
-
 
 admin.site.register(Note)
