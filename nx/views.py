@@ -9,7 +9,6 @@ from nx.models import Note, Need
 def notes(request):
     form = NotesSearchForm(request.GET)
     notes = form.search()
-    print notes[0].id
     return render_to_response('notes.html', {'notes': notes})
 
 def note(request, note_id=None):
