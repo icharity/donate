@@ -1,0 +1,29 @@
+{% load pages_tags mezzanine_tags i18n future staticfiles %}
+<script src="{% static "mezzanine/js/jquery-1.7.1.min.js" %}"></script>
+<script src="{% static "js/bootstrap.js" %}"></script>
+
+<link rel="stylesheet" href="{% static "css/bootstrap.css" %}">
+<link rel="stylesheet" href="{% static "css/mezzanine.css" %}">
+<link rel="stylesheet" href="{% static "css/bootstrap-theme.css" %}">
+
+{% load i18n %}
+
+{% block main %}
+<div class="container">
+    <h1>Needs</h1>
+    <form type="get" action=".">
+        <input type="text" name="q">
+        <button type="submit">Search</button>
+    </form>
+
+    {% for note in notes %}
+    <h1>{{ note.title }}</h1>
+
+    <p>
+        {{ note.body }}
+        <br/>
+        <img src="{{note.image}}" height=512 width=512 alt=""/>
+    </p>
+    {% endfor %}
+</div>
+{% endblock %}

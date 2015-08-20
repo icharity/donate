@@ -15,6 +15,7 @@ urlpatterns = i18n_patterns("",
 urlpatterns += patterns('nx.views',
     url("^view/$", "notes", name="note"),
     url("^create/$",NoteCreate.as_view(success_url="/view/"), name="create"),
+    url("^search-needs/$","search_needs", name="search")
 )
 
 urlpatterns += patterns('',

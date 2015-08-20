@@ -11,6 +11,11 @@ def notes(request):
     notes = form.search()
     return render_to_response('notes.html', {'notes': notes})
 
+def search_needs(request):
+    form = NotesSearchForm(request.GET)
+    notes = form.search()
+    return render_to_response('needs.html', {'notes': notes})
+
 class NoteCreate(CreateView):
     """
     Link creation view - assigns the user to the new link, as well
