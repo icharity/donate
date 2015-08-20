@@ -2,7 +2,7 @@ from django.core.urlresolvers import reverse
 from django.shortcuts import render_to_response
 from django.views.generic import CreateView
 
-from .forms import NotesSearchForm, NotesForm, NeedsForm
+from .forms import NotesSearchForm, NeedsSearchForm, NotesForm, NeedsForm
 
 from nx.models import Note, Need
 

@@ -5,6 +5,10 @@ from django.forms.models import modelform_factory
 from haystack.forms import SearchForm
 from nx.models import Note,Need
 
+class NeedsSearchForm(SearchForm):
+    def no_query_found(self):
+        return self.searchqueryset.all()
+
 
 class NotesSearchForm(SearchForm):
     def no_query_found(self):
