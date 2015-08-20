@@ -1,3 +1,4 @@
+from django.core.urlresolvers import reverse
 from django.shortcuts import render_to_response
 from django.views.generic import CreateView
 
@@ -12,10 +13,8 @@ def notes(request):
     return render_to_response('notes.html', {'notes': notes})
 
 def note(request, note_id=None):
-    print 
-    form = NotesSearchForm(request.GET)
-    notes = form.search()
-    return render_to_response('note_detail.html', {'notes': notes})
+    result = Note.objects.get(id=note_id)
+    return render_to_response('note_detail.html', {'note': result})
 
 def search_needs(request):
     form = NotesSearchForm(request.GET)
@@ -31,6 +30,11 @@ class NoteCreate(CreateView):
 
     form_class = NotesForm
     model = Note
+
+    def get_success_url(self):
+        print "--------------"
+        print self.object.id
+        return "/note/" + str(self.object.id)
 
 class NeedCreate(CreateView):
     form_class = NeedsForm
