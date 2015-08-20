@@ -1,12 +1,23 @@
 #HackDay Donate
 
-##Ionic ElasticSearch with OpenLayers 3
 
-> A Demo of ElasticSearch, Django, Ionic
+##Insall
 
-##Struct
+1.Install Deps
 
-![Struct](./struct.png)
+    pip install -r requirements.txt
+
+2.Install ElasticSearch
+
+	brew install elasticsearch
+
+3.Create Database
+
+    python manage.py syncdb
+
+4.Run
+ 
+	python manage.py runserver    
 
 ##Tech
 
@@ -14,10 +25,6 @@
 - Django
 - Ionic
 - OpenLayers 3
-
-##Client
-
-Visit: [https://github.com/phodal/ionic-elasticsearch](https://github.com/phodal/ionic-elasticsearch)
 
 ##Document
 
