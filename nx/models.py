@@ -30,9 +30,11 @@ class Note(models.Model):
                               help_text="Upload a zip file containing images, and they'll be imported into this gallery.")
     description = models.TextField("简介")
     timestamp = models.DateTimeField(auto_now=True)
+    validate = models.BooleanField("是否验证", default=False)
+    status = models.BooleanField("是否已经发送", default=False)
 
     def __unicode__(self):
-        return self.title
+        return self.username
 
     def get_photo_url(self):
         print (self.photo.url)

@@ -12,6 +12,8 @@ class NoteIndex(indexes.SearchIndex, indexes.Indexable):
     number = indexes.IntegerField(model_attr='number')
     photo = indexes.CharField(model_attr='photo')
     description = indexes.CharField(model_attr='description')
+    validate = indexes.BooleanField(model_attr='validate')
+    status = indexes.BooleanField(model_attr='status')
 
     def get_model(self):
         return Note

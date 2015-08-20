@@ -6,3 +6,5 @@
 {{ object.number }}
 {{ object.photo }}
 {{ object.description }}
+{{ object.validate }}
+{{ object.status }}
