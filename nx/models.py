@@ -53,6 +53,10 @@ class Note(models.Model):
         self.longitude = results[0].coordinates[1]
         super(Note, self).save(*args, **kwargs)
 
+    def get_image_url(self):
+        print (self.image.url)
+        return self.image.url
+
     def get_location(self):
         return Point(self.longitude, self.latitude)
 
