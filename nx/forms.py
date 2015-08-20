@@ -5,15 +5,15 @@ from nx.models import Note
 
 
 class NotesSearchForm(SearchForm):
-
     def no_query_found(self):
         return self.searchqueryset.all()
 
-BaseNoteForm = modelform_factory(Note, fields=["username", "phone_number", "title",
+
+BaseNoteForm = modelform_factory(Note, fields=["username", "phone_number", "title", "image",
                                                "body", "price", "number", "province", "city", "address"])
 
-class NotesForm(BaseNoteForm):
 
+class NotesForm(BaseNoteForm):
     def clean(self):
         title = self.cleaned_data.get("title", None)
         body = self.cleaned_data.get("body", None)
@@ -21,6 +21,8 @@ class NotesForm(BaseNoteForm):
         province = self.cleaned_data.get("province", None)
         city = self.cleaned_data.get("city", None)
         address = self.cleaned_data.get("address", None)
+        image = self.cleaned_data.get("image", None)
+
         if not title and not body:
             raise ValidationError("Either a title or body is required")
         if not phone_number:
@@ -31,4 +33,6 @@ class NotesForm(BaseNoteForm):
             raise ValidationError("Either city is required")
         if not address:
             raise ValidationError("Either address is required")
+        if not image:
+            raise ValidationError("Either image is required")
         return self.cleaned_data

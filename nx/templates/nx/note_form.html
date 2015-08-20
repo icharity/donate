@@ -9,7 +9,7 @@
 <div class="container">
     <div class="span12">
         {% errors_for form %}
-        <form method="post">
+        <form method="post" enctype="multipart/form-data">
             <fieldset>{% fields_for form %}</fieldset>
             <div class="actions">
                 <input class="btn btn-warning btn-large" type="submit" value="创建">
