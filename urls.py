@@ -17,7 +17,7 @@ urlpatterns += patterns('nx.views',
     url("^note/(?P<note_id>\d{1,10})", "note", name="note_detail"),
     url("^create/$",NoteCreate.as_view(success_url="/view/"), name="create"),
     url("^search-needs/$","search_needs", name="search"),
-    url("^need/$",NeedCreate.as_view, name="need"),
+    url("^need/$",NeedCreate.as_view(success_url="/view/"), name="need"),
 )
 
 urlpatterns += patterns('',
