@@ -32,8 +32,6 @@ class NoteCreate(CreateView):
     model = Note
 
     def get_success_url(self):
-        print "--------------"
-        print self.object.id
         return "/note/" + str(self.object.id)
 
 class NeedCreate(CreateView):
