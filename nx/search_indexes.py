@@ -2,15 +2,16 @@ from haystack import indexes
 
 from .models import Note
 
-
 class NoteIndex(indexes.SearchIndex, indexes.Indexable):
     text = indexes.CharField(document=True, use_template=True)
-    title = indexes.CharField(model_attr='title')
-    body = indexes.CharField(model_attr='body')
+    username = indexes.CharField(model_attr='username')
+    phone_number = indexes.CharField(model_attr='phone_number')
+    address = indexes.CharField(model_attr='address')
+    donation_type = indexes.CharField(model_attr='donation_type')
+    new = indexes.BooleanField(model_attr='new')
     number = indexes.IntegerField(model_attr='number')
-    image = indexes.CharField(model_attr='get_image_url')
-    price = indexes.IntegerField(model_attr='price')
-    phone_number = indexes.IntegerField(model_attr='phone_number')
+    photo = indexes.CharField(model_attr='photo')
+    description = indexes.CharField(model_attr='description')
 
     def get_model(self):
         return Note

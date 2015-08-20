@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 from django.core.exceptions import ValidationError
 from django.forms.models import modelform_factory
 from haystack.forms import SearchForm
@@ -9,30 +11,29 @@ class NotesSearchForm(SearchForm):
         return self.searchqueryset.all()
 
 
-BaseNoteForm = modelform_factory(Note, fields=["username", "phone_number", "title", "image",
-                                               "body", "price", "number", "province", "city", "address"])
+BaseNoteForm = modelform_factory(Note, fields=["username", "phone_number","address", "donation_type",
+                                               "new", "number", "photo", "description"])
 
 
 class NotesForm(BaseNoteForm):
     def clean(self):
-        title = self.cleaned_data.get("title", None)
-        body = self.cleaned_data.get("body", None)
+        username = self.cleaned_data.get("username", None)
+        donation_type = self.cleaned_data.get("donation_type", None)
         phone_number = self.cleaned_data.get("phone_number", None)
-        province = self.cleaned_data.get("province", None)
-        city = self.cleaned_data.get("city", None)
         address = self.cleaned_data.get("address", None)
-        image = self.cleaned_data.get("image", None)
+        photo = self.cleaned_data.get("photo", None)
+        description = self.cleaned_data.get("description", None)
 
-        if not title and not body:
-            raise ValidationError("Either a title or body is required")
+        if not username:
+            raise ValidationError("请输入用户名")
+        if not donation_type:
+            raise ValidationError("请输入类型")
+        if not description:
+            raise ValidationError("请输入描述")
         if not phone_number:
-            raise ValidationError("Either phone_number is required")
-        if not province:
-            raise ValidationError("Either province is required")
-        if not city:
-            raise ValidationError("Either city is required")
+            raise ValidationError("请输入手机号码")
         if not address:
-            raise ValidationError("Either address is required")
-        if not image:
-            raise ValidationError("Either image is required")
+            raise ValidationError("请输入地址")
+        if not photo:
+            raise ValidationError("请选择照片")
         return self.cleaned_data

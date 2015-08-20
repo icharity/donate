@@ -1,6 +1,8 @@
-{{ object.title }}
-{{ object.body }}
-{{ object.number }}
-{{ object.price }}
-{{ object.get_image_url }}
+{{ object.username }}
 {{ object.phone_number }}
+{{ object.address }}
+{{ object.donation_type }}
+{{ object.new }}
+{{ object.number }}
+{{ object.photo }}
+{{ object.description }}
