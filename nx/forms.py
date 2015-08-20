@@ -19,8 +19,8 @@ BaseNoteForm = modelform_factory(Note, fields=["username", "phone_number","addre
                                                "new", "number", "photo", "description"])
 
 
-BaseNeedForm = modelform_factory(Need, fields=["publisher", "publisher_phone_number", "title", "image",
-                                               "body", "province", "city", "address", "contact_person", "contact_person_telephone"])
+BaseNeedForm = modelform_factory(Need, fields=["publisher", "publisher_phone_number", "image",
+                                                "address", "contact_person", "contact_person_telephone", "description"])
 
 class NotesForm(BaseNoteForm):
     def clean(self):
@@ -47,24 +47,16 @@ class NotesForm(BaseNoteForm):
 
 class NeedsForm(BaseNeedForm):
     def clean(self):
-        title = self.cleaned_data.get("title", None)
-        body = self.cleaned_data.get("body", None)
+        publisher = self.cleaned_data.get("publisher", None)
+        description = self.cleaned_data.get("description", None)
         contact_persion_telephone = self.cleaned_data.get("contact_persion_telephone", None)
-        province = self.cleaned_data.get("province", None)
-        city = self.cleaned_data.get("city", None)
         address = self.cleaned_data.get("address", None)
-        #image = self.cleaned_data.get("image", None)
-
-        if not title and not body:
-            raise ValidationError("Either a title or body is required")
+        if not publisher:
+            raise ValidationError("请输入发布者姓名")
+        if not description:
+            raise ValidationError("请输入描述")
         if not contact_persion_telephone:
-            raise ValidationError("Either contact_persion_telephone is required")
-        if not province:
-            raise ValidationError("Either province is required")
-        if not city:
-            raise ValidationError("Either city is required")
+            raise ValidationError("请输入联系人手机号码")
         if not address:
-            raise ValidationError("Either address is required")
-        # if not image:
-        #     raise ValidationError("Either image is required")
+            raise ValidationError("请输入地址")
         return self.cleaned_data
