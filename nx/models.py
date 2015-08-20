@@ -60,7 +60,7 @@ class Need(models.Model):
     description = models.TextField("简介")
     type = models.CharField("类型", max_length=10, default='need')
     def __unicode__(self):
-        return self.title
+        return self.publisher
 
     def get_image_url(self):
         return self.image.url

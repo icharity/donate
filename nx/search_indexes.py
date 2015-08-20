@@ -22,8 +22,6 @@ class NoteIndex(indexes.SearchIndex, indexes.Indexable):
 
 class NeedIndex(indexes.SearchIndex, indexes.Indexable):
     text = indexes.CharField(document=True, use_template=True)
-    # BaseNeedForm = modelform_factory(Need, fields=["publisher", "publisher_phone_number", "image",
-    #                                             "address", "contact_person", "contact_person_telephone", "description"])
     publisher = indexes.CharField(model_attr='publisher')
     publisher_phone_number = indexes.CharField(model_attr='publisher_phone_number')
     image = indexes.CharField(model_attr='image')
