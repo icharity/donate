@@ -1,6 +1,6 @@
 from haystack import indexes
 
-from .models import Note,Need
+from .models import Note, Need
 
 class NoteIndex(indexes.SearchIndex, indexes.Indexable):
     text = indexes.CharField(document=True, use_template=True)
@@ -18,11 +18,20 @@ class NoteIndex(indexes.SearchIndex, indexes.Indexable):
 
     def get_model(self):
         return Note
+
+
 class NeedIndex(indexes.SearchIndex, indexes.Indexable):
     text = indexes.CharField(document=True, use_template=True)
-    username = indexes.CharField(model_attr='username')
-    email = indexes.CharField(model_attr='email')
-    phone_number = indexes.IntegerField(model_attr='phone_number')
+    # BaseNeedForm = modelform_factory(Need, fields=["publisher", "publisher_phone_number", "image",
+    #                                             "address", "contact_person", "contact_person_telephone", "description"])
+    publisher = indexes.CharField(model_attr='publisher')
+    publisher_phone_number = indexes.CharField(model_attr='publisher_phone_number')
+    image = indexes.CharField(model_attr='image')
+    address = indexes.CharField(model_attr='address')
+    contact_person = indexes.CharField(model_attr='contact_person')
+    contact_person_telephone = indexes.CharField(model_attr='contact_person_telephone')
+    description = indexes.CharField(model_attr='description')
+    type = indexes.CharField(model_attr='type')
 
     def get_model(self):
         return Need

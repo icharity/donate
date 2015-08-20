@@ -1,3 +1,8 @@
-{{ object.username }}
-{{ object.email }}
-{{ object.phone_number }}
+{{ object.publisher }}
+{{ object.publisher_phone_number }}
+{{ object.image }}
+{{ object.address }}
+{{ object.contact_person }}
+{{ object.contact_person_telephone }}
+{{ object.description }}
+{{ object.type }}

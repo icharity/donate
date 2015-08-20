@@ -49,13 +49,14 @@ class NeedsForm(BaseNeedForm):
     def clean(self):
         publisher = self.cleaned_data.get("publisher", None)
         description = self.cleaned_data.get("description", None)
-        contact_persion_telephone = self.cleaned_data.get("contact_persion_telephone", None)
+        contact_person_telephone = self.cleaned_data.get("contact_person_telephone", None)
         address = self.cleaned_data.get("address", None)
+
         if not publisher:
             raise ValidationError("请输入发布者姓名")
         if not description:
             raise ValidationError("请输入描述")
-        if not contact_persion_telephone:
+        if not contact_person_telephone:
             raise ValidationError("请输入联系人手机号码")
         if not address:
             raise ValidationError("请输入地址")
