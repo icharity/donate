@@ -14,10 +14,10 @@ class NoteIndex(indexes.SearchIndex, indexes.Indexable):
     description = indexes.CharField(model_attr='description')
     validate = indexes.BooleanField(model_attr='validate')
     status = indexes.BooleanField(model_attr='status')
+    type = indexes.CharField(model_attr='type')
 
     def get_model(self):
         return Note
-
 class NeedIndex(indexes.SearchIndex, indexes.Indexable):
     text = indexes.CharField(document=True, use_template=True)
     username = indexes.CharField(model_attr='username')

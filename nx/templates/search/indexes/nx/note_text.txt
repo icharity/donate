@@ -8,3 +8,4 @@
 {{ object.description }}
 {{ object.validate }}
 {{ object.status }}
+{{ object.type }}

@@ -32,6 +32,7 @@ class Note(models.Model):
     timestamp = models.DateTimeField(auto_now=True)
     validate = models.BooleanField("是否验证", default=False)
     status = models.BooleanField("是否已经发送", default=False)
+    type = models.CharField("类型", max_length=10, default='note')
 
     def __unicode__(self):
         return self.username
@@ -57,7 +58,7 @@ class Need(models.Model):
                                                                   _('Enter a valid contact person Phone Number.'), 'invalid')
                                     ])
     description = models.TextField("简介")
-
+    type = models.CharField("类型", max_length=10, default='need')
     def __unicode__(self):
         return self.title
 
