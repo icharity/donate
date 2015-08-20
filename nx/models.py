@@ -37,7 +37,45 @@ class Note(models.Model):
         return self.username
 
     def get_photo_url(self):
-        print (self.photo.url)
         return self.photo.url
 
+class Need(models.Model):
+    username = models.CharField("用户名", max_length=30, unique=True)
+    # help_text=_('Required. 30 characters or fewer. Letters, numbers and '
+    # '@/./+/-/_ characters'),
+    # validators=[
+    #     validators.RegexValidator(re.compile('^[\w.@+-]+$'), _('Enter a valid username.'), 'invalid')
+    # ])
+
+    # ["publisher", "publisher_phone_number", "title", "image",
+    #                                            "body", "province", "city", "address", "contact_person ", "contact_persion_telephone"])
+
+    publisher = models.CharField("发布者", blank=True, max_length=30)
+    publisher_phone_number = models.CharField("手机号", max_length=11, unique=True,
+                                    validators=[
+                                        validators.RegexValidator(re.compile('^\+?1?\d{9,15}$'),
+                                                                  _('Enter a valid Phone Number.'), 'invalid')
+                                    ])
+
+    title = models.CharField("标题", max_length=1000)
+    image = models.ImageField(upload_to=get_upload_file_name,
+                              help_text="Upload a zip file containing images, and they'll be imported into this gallery.")
+    body = models.TextField("简介")
+    province = models.CharField("省", max_length=10)
+    city = models.CharField("市", max_length=10)
+    address = models.CharField("地址", max_length=10)
+    contact_person = models.CharField("联系人", blank=True, max_length=11)
+    contact_person_telephone = models.CharField("联系人手机号", max_length=11, unique=True,
+                                    validators=[
+                                        validators.RegexValidator(re.compile('^\+?1?\d{9,15}$'),
+                                                                  _('Enter a valid contact person Phone Number.'), 'invalid')
+                                    ])
+
+    def __unicode__(self):
+        return self.title
+
+    def get_image_url(self):
+        return self.image.url
+
+admin.site.register(Need)
 admin.site.register(Note)

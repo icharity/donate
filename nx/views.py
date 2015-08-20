@@ -1,10 +1,9 @@
 from django.shortcuts import render_to_response
 from django.views.generic import CreateView
 
-from .forms import NotesSearchForm, NotesForm
+from .forms import NotesSearchForm, NotesForm, NeedsForm
 
-from nx.models import Note
-
+from nx.models import Note, Need
 
 def notes(request):
     form = NotesSearchForm(request.GET)
@@ -25,3 +24,7 @@ class NoteCreate(CreateView):
 
     form_class = NotesForm
     model = Note
+
+class NeedCreate(CreateView):
+    form_class = NeedsForm
+    model = Need
