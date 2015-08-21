@@ -1,7 +1,5 @@
 body {
-    background-color: #c1c1c1;
-    background: url('/static/img/donate_bg.jpg') no-repeat;
-    background-size: cover;
+    background-color: rgb(234, 221, 164);
     padding-top: 0px;
 }
 
