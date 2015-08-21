@@ -1,6 +1,7 @@
 {% load pages_tags mezzanine_tags i18n future staticfiles %}
 <script src="{% static "mezzanine/js/jquery-1.7.1.min.js" %}"></script>
 <script src="{% static "js/bootstrap.js" %}"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <link rel="stylesheet" href="{% static "css/bootstrap.css" %}">
 <link rel="stylesheet" href="{% static "css/mezzanine.css" %}">
@@ -10,31 +11,23 @@
 {% load i18n %}
 
 {% block main %}
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-sm-12">
-            <nav class="navbar navbar-default">
-            </nav>
-            <div class="container">
-                <form class="search-form" type="get" action=".">
-                    <div class="row">
-                        <input class="form-control search-input col-lg-8" type="text" name="q">
-                        <button class='btn btn-primary col-lg-2 search-button' type="submit">Search</button>
-                    </div>
-                </form>
+<div class="container-fluid col-sm-12">
+    <div class="col-sm-12">
+        <form class="search-form" type="get" action=".">
+            <input class="col-sm-10 form-control search-input col-lg-8" type="text" name="q">
+            <button class='btn btn-primary btn-lg search-button' type="submit">Search</button>
+        </form>
 
-                {% for note in notes %}
-                <h2 class="address">{{ note.address }}</h2>
+        {% for note in notes %}
+        <h2 class="address">{{ note.address }}</h2>
 
-                <div class="describe">
-                    <div class="content">
-                        {{ note.description }}
-                    </div>
-                    <img src="/static/media/{{note.photo}}" height=512 width=512 alt=""/>
-                </div>
-                {% endfor %}
+        <div class="describe">
+            <div class="content">
+                {{ note.description }}
             </div>
+            <img src="/static/media/{{note.photo}}" height=512 width=512 alt=""/>
         </div>
+        {% endfor %}
     </div>
 </div>
 {% endblock %}
