@@ -1,16 +1,10 @@
-{% load pages_tags mezzanine_tags i18n future staticfiles %}
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="{% static "css/bootstrap.css" %}">
-<link rel="stylesheet" href="{% static "css/mezzanine.css" %}">
-<link rel="stylesheet" href="{% static "css/bootstrap-theme.css" %}">
-<link rel="stylesheet" href="{% static "css/donates.css" %}">
+{% extends "nx_base.html" %}
+{% load i18n mezzanine_tags %}
 
-{% load i18n %}
+{% block meta_title %}{% trans "Donates" %}{% endblock %}
+{% block title %}{% trans "Donates" %}{% endblock %}
 
 {% block main %}
-<header>
-    <h1>Thumb Charity</h1>
-</header>
 <div class="container">
     <div class="span12">
         {% errors_for form %}
