@@ -46,3 +46,7 @@ body {
     margin-top: 10px;
     font-size: 16px;
 }
+
+.span12 .input_id_publisher, .span12 .input_id_username {
+    margin-top: 10px;
+}
