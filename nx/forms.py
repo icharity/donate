@@ -3,7 +3,7 @@
 from django.core.exceptions import ValidationError
 from django.forms.models import modelform_factory
 from haystack.forms import SearchForm
-from nx.models import Note,Need
+from nx.models import Donate,Need
 
 class NeedsSearchForm(SearchForm):
     def no_query_found(self):
@@ -15,7 +15,7 @@ class NotesSearchForm(SearchForm):
         return self.searchqueryset.filter(type='note')
 
 
-BaseNoteForm = modelform_factory(Note, fields=["username", "phone_number","address", "donation_type",
+BaseNoteForm = modelform_factory(Donate, fields=["username", "phone_number","address", "donation_type",
                                                "new", "number", "photo", "description"])
 
 

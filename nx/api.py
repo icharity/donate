@@ -4,13 +4,13 @@ from tastypie.resources import ModelResource
 from haystack.query import SearchQuerySet, EmptySearchQuerySet
 from django.conf.urls import url
 
-from .models import Note
+from .models import Donate
 
 
-class NoteResource(ModelResource):
+class DonateResource(ModelResource):
     class Meta:
         # queryset = Note.objects.all().order_by('-created')
-        queryset = Note.objects.all()
+        queryset = Donate.objects.all()
         resource_name = 'notes'
 
     def override_urls(self):
@@ -30,7 +30,7 @@ class NoteResource(ModelResource):
             raise BadRequest('Please supply the search parameter (e.g. "/api/v1/notes/search/?q=css")')
 
         # results = SearchQuerySet().models(Note).filter(user=request.user).auto_query(query)
-        results = SearchQuerySet().models(Note).auto_query(query)
+        results = SearchQuerySet().models(Donate).auto_query(query)
         if not results:
             results = EmptySearchQuerySet()
 

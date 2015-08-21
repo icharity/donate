@@ -14,7 +14,7 @@ def get_upload_file_name(instance, filename):
     return "galleries/%s_%s" % (str(time()).replace('.', '_'), filename)
 
 
-class Note(models.Model):
+class Donate(models.Model):
     username = models.CharField("用户名", max_length=30)
     phone_number = models.CharField("手机号", max_length=11,
                                     validators=[
@@ -66,4 +66,4 @@ class Need(models.Model):
         return self.image.url
 
 admin.site.register(Need)
-admin.site.register(Note)
+admin.site.register(Donate)

@@ -6,16 +6,16 @@ from django.http import HttpResponse
 
 from .forms import NotesSearchForm, NeedsSearchForm, NotesForm, NeedsForm
 
-from nx.models import Note, Need
+from nx.models import Donate, Need
 
 def notes(request):
     form = NotesSearchForm(request.GET)
     notes = form.search()
-    return render_to_response('notes.html', {'notes': notes})
+    return render_to_response('donates.html', {'donates': notes})
 
 def note(request, note_id=None):
-    result = Note.objects.get(id=note_id)
-    return render_to_response('note_detail.html', {'note': result})
+    result = Donate.objects.get(id=note_id)
+    return render_to_response('donate_detail.html', {'donate': result})
 
 def need(request, need_id=None):
     result = Need.objects.get(id=need_id)
@@ -42,7 +42,7 @@ class NoteCreate(CreateView):
     """
 
     form_class = NotesForm
-    model = Note
+    model = Donate
 
     def get_success_url(self):
         return "/note/" + str(self.object.id)

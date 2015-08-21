@@ -2,11 +2,11 @@
 <script src="{% static "mezzanine/js/jquery-1.7.1.min.js" %}"></script>
 <script src="{% static "js/bootstrap.js" %}"></script>
 <script src="{% static "js/bootstrap-select.min.js" %}"></script>
-<script src="{% static "js/notes.js" %}"></script>
+<script src="{% static "js/donates.js" %}"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <link rel="stylesheet" href='{% static "css/bootstrap.min.css" %}'>
-<link rel="stylesheet" href='{% static "css/notes.css" %}'>
+<link rel="stylesheet" href='{% static "css/donates.css" %}'>
 
 {% load i18n %}
 
@@ -18,20 +18,20 @@
         <h1>Thumb Charity</h1>
     </header>
     <div class="col-sm-12">
-       {% for note in notes %}
+       {% for donate in donates %}
         <div class="panel panel-default">
            <div class="panel-body">
                <div class="title">
-                   <h2 class="address">{{ note.address }}</h2>
+                   <h2 class="address">{{ donate.address }}</h2>
                    <span class="like glyphicon glyphicon-heart">
                    </span>
                    <span class="animation-number">+1</span>
                </div>
                <div class="describe">
                    <div class="content">
-                       {{ note.description }}
+                       {{ donate.description }}
                    </div>
-                   <img src="/static/media/{{note.photo}}" width=100% alt=""/>
+                   <img src="/static/media/{{donate.photo}}" width=100% alt=""/>
                </div>
            </div>
         </div>

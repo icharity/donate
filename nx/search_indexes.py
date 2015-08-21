@@ -1,8 +1,8 @@
 from haystack import indexes
 
-from .models import Note, Need
+from .models import Donate, Need
 
-class NoteIndex(indexes.SearchIndex, indexes.Indexable):
+class DonateIndex(indexes.SearchIndex, indexes.Indexable):
     text = indexes.CharField(document=True, use_template=True)
     username = indexes.CharField(model_attr='username')
     phone_number = indexes.CharField(model_attr='phone_number')
@@ -17,7 +17,7 @@ class NoteIndex(indexes.SearchIndex, indexes.Indexable):
     type = indexes.CharField(model_attr='type')
 
     def get_model(self):
-        return Note
+        return Donate
 
 
 class NeedIndex(indexes.SearchIndex, indexes.Indexable):
