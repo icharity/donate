@@ -60,6 +60,10 @@ header{
     margin-top: 10px;
 }
 
+.span12 .btn-create {
+    width: 70px;
+}
+
 .detail-describe {
     font-size: 16px;
 }
