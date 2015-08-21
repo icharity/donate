@@ -1,6 +1,8 @@
 from django.core.urlresolvers import reverse
 from django.shortcuts import render_to_response
 from django.views.generic import CreateView
+from django.template import RequestContext,loader
+from django.http import HttpResponse
 
 from .forms import NotesSearchForm, NeedsSearchForm, NotesForm, NeedsForm
 
@@ -20,9 +22,17 @@ def need(request, need_id=None):
     return render_to_response('need_detail.html', {'need': result})
 
 def search_needs(request):
-    form = NeedsSearchForm(request.GET)
-    needs = form.search()
-    return render_to_response('needs.html', {'needs': needs})
+
+    if(request.method == 'POST'):
+        kwargs = { request.POST['search_name'] : request.POST['search_value']}
+        needs = Need.objects.filter(**kwargs)
+    else:
+        form = NeedsSearchForm(request.GET)
+        needs = form.search()
+
+    t = loader.get_template('needs.html')
+    c = RequestContext(request,{'needs': needs})
+    return HttpResponse(t.render(c))
 
 class NoteCreate(CreateView):
     """

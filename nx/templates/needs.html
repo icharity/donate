@@ -14,6 +14,15 @@
         <header>
             <h1>Thumb Charity</h1>
         </header>
+        <form method="post" action=".">
+        {% csrf_token %}
+        <select name="search_name">
+                <option value="contact_person">联系人</option>
+                <option value="contact_person_telephone">联系人电话</option>
+            </select>
+        <input type="text" name="search_value">
+        <button type="submit">Search</button>
+    </form>
         <div class="col-sm-12">
             <div class="container">
                 {% for need in needs %}
