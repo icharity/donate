@@ -25,8 +25,8 @@
 DEBUG = True
 
 # Make these unique, and don't share it with anybody.
-SECRET_KEY = "f5bd5a0f-20b7-4acd-a845-7cc70835b11f5c3ac5d6-bf88-4fb3-a5d4-5714b7a48cd100d27749-b943-45da-8944-599fd3a6a086"
-NEVERCACHE_KEY = "f39d161c-ffc8-44e8-b483-d1da2f0fe894df3cc3c7-c6eb-4221-a61c-c6b7af2343416ac2f605-8359-4244-b6ab-77dde1d05598"
+SECRET_KEY = "I do not know"
+NEVERCACHE_KEY = "I do not know"
 
 DATABASES = {
     "default": {

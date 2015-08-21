@@ -5,10 +5,10 @@ from nx.models import Note
 
 
 class NoteDetailSerializer(serializers.HyperlinkedModelSerializer):
-
     class Meta:
         model = Note
-        fields = ("username", "phone_number", "title", "body", "price", "number", "province", "city", "address")
+        fields = ("username", "phone_number", "address", "donation_type", "new", "number", "photo", "description")
+
 
 class AllListView(viewsets.ModelViewSet):
     serializer_class = NoteDetailSerializer
