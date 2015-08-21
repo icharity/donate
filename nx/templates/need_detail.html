@@ -2,25 +2,29 @@
 <script src="{% static "mezzanine/js/jquery-1.7.1.min.js" %}"></script>
 <script src="{% static "js/bootstrap.js" %}"></script>
 
-<link rel="stylesheet" href="{% static "css/bootstrap.css" %}">
-<link rel="stylesheet" href="{% static "css/mezzanine.css" %}">
-<link rel="stylesheet" href="{% static "css/bootstrap-theme.css" %}">
+<link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}">
 
 {% load i18n %}
 
 {% block main %}
-<div class="container">
-    <form type="get" action=".">
-        <input type="text" name="q">
-        <button type="submit">Search</button>
-    </form>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="container">
+                <form type="get" action=".">
+                    <input type="text" name="q">
+                    <button type="submit">Search</button>
+                </form>
 
-    <h1>{{ need.phone_number }}</h1>
+                <h1>{{ need.phone_number }}</h1>
 
-    <p>
-        {{ need.description }}
-        <br/>
-        <img src="{{need.get_image_url}}" height=512 width=512 alt=""/>
-    </p>
+                <p>
+                    {{ need.description }}
+                    <br/>
+                    <img src="{{need.get_image_url}}" width=100% alt=""/>
+                </p>
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock %}
