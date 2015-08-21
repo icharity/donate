@@ -42,7 +42,7 @@ class Note(models.Model):
 
 class Need(models.Model):
     publisher = models.CharField("发布者", max_length=30)
-    publisher_phone_number = models.CharField("手机号", max_length=11, unique=True,
+    publisher_phone_number = models.CharField("手机号", max_length=11,
                                     validators=[
                                         validators.RegexValidator(re.compile('^\+?1?\d{9,15}$'),
                                                                   _('Enter a valid Phone Number.'), 'invalid')
@@ -52,7 +52,7 @@ class Need(models.Model):
                               help_text="Upload a zip file containing images, and they'll be imported into this gallery.")
     address = models.CharField("地址", max_length=20)
     contact_person = models.CharField("联系人", max_length=11)
-    contact_person_telephone = models.CharField("联系人手机号", max_length=11, unique=True,
+    contact_person_telephone = models.CharField("联系人手机号", max_length=11,
                                     validators=[
                                         validators.RegexValidator(re.compile('^\+?1?\d{9,15}$'),
                                                                   _('Enter a valid contact person Phone Number.'), 'invalid')
