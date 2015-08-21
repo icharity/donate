@@ -1,28 +1,17 @@
-{% load pages_tags mezzanine_tags i18n future staticfiles %}
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="{% static "mezzanine/js/jquery-1.7.1.min.js" %}"></script>
-<script src="{% static "js/bootstrap.js" %}"></script>
-
-<link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}">
-<link rel="stylesheet" href="{% static "css/donates.css" %}">
-
+{% extends "nx_base.html" %}
 {% load i18n %}
 
-{% block main %}
-<div class="container-fluid">
-    <div class="row">
-        <header>
-            <h1>Thumb Charity</h1>
-        </header>
-        <div class="col-sm-12">
-            <div class="container">
-                <h1>{{ donate.phone_number }}</h1>
+{% block meta_title %}{% trans "Donates" %}{% endblock %}
+{% block title %}{% trans "Donates" %}{% endblock %}
 
-                <div class="detail-describe">
-                    {{ donate.description }}
-                    <img src="{{donate.get_photo_url}}" width=100% alt=""/>
-                </div>
-            </div>
+{% block main %}
+<div class="col-sm-12">
+    <div class="container">
+        <h1>{{ donate.phone_number }}</h1>
+
+        <div class="detail-describe">
+            {{ donate.description }}
+            <img src="{{donate.get_photo_url}}" width=100% alt=""/>
         </div>
     </div>
 </div>
