@@ -22,7 +22,6 @@ def need(request, need_id=None):
     return render_to_response('need_detail.html', {'need': result})
 
 def search_needs(request):
-
     if(request.method == 'POST'):
         kwargs = { request.POST['search_name'] : request.POST['search_value']}
         needs = Need.objects.filter(**kwargs)
