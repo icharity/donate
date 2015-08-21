@@ -1,9 +1,13 @@
 {% load pages_tags mezzanine_tags i18n future staticfiles %}
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
 <script src="{% static "mezzanine/js/jquery-1.7.1.min.js" %}"></script>
 <script src="{% static "js/bootstrap.js" %}"></script>
+<script src="{% static "js/bootstrap-select.min.js" %}"></script>
+<script src="{% static "js/notes.js" %}"></script>
 
 <link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}">
+<link rel="stylesheet" href='{% static "css/bootstrap-select.min.css" %}'>
 <link rel="stylesheet" href="{% static "css/notes.css" %}">
 
 {% load i18n %}
@@ -14,14 +18,17 @@
         <header>
             <h1>Thumb Charity</h1>
         </header>
-        <form method="post" action=".">
+        <form class="search-needs-form" method="post" action=".">
         {% csrf_token %}
-        <select name="search_name">
-                <option value="contact_person">联系人</option>
-                <option value="contact_person_telephone">联系人电话</option>
+            <select class="selectpicker" name="search_name">
+                    <option value="contact_person">联系人</option>
+                    <option value="contact_person_telephone">联系人电话</option>
+                    <option value="contact_address">地区</option>
             </select>
-        <input type="text" name="search_value">
-        <button type="submit">Search</button>
+            <div class="search-part">
+                <input class="search-needs-input" type="text" name="search_value">
+                <button class="search-needs-btn btn btn-primary" type="submit">Search</button>
+            </div>
     </form>
         <div class="col-sm-12">
             <div class="container">

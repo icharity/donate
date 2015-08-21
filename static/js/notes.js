@@ -6,7 +6,9 @@
                 $(".panel-body .animation-number").fadeIn('slow');
                 $(".panel-body .animation-number").fadeOut('slow');
             }
-
         });
+
+        $('.selectpicker').selectpicker();
+        console.log('laladfs');
     });
 })();

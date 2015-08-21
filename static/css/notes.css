@@ -81,3 +81,19 @@ header{
 .detail-describe img {
     margin-top: 10px;
 }
+
+select[name='search_name'] {
+    width: 100px;
+}
+
+.search-part {
+    margin-top: 20px;
+}
+
+.search-needs-input, .search-needs-btn {
+    margin-left: 30px;
+}
+
+.search-needs-form div.bootstrap-select.btn-group {
+    margin-left: 30px;
+}
