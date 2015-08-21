@@ -5,12 +5,13 @@
 <link rel="stylesheet" href="{% static "css/bootstrap.css" %}">
 <link rel="stylesheet" href="{% static "css/mezzanine.css" %}">
 <link rel="stylesheet" href="{% static "css/bootstrap-theme.css" %}">
+<link rel="stylesheet" href="{% static "css/notes.css" %}">
 
 {% load i18n %}
 
 {% block main %}
 <div class="container">
-    <form type="get" action=".">
+    <form class="search-form" type="get" action=".">
         <input type="text" name="q">
         <button type="submit">Search</button>
     </form>
