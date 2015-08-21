@@ -15,6 +15,10 @@ def note(request, note_id=None):
     result = Note.objects.get(id=note_id)
     return render_to_response('note_detail.html', {'note': result})
 
+def need(request, need_id=None):
+    result = Need.objects.get(id=need_id)
+    return render_to_response('need_detail.html', {'need': result})
+
 def search_needs(request):
     form = NeedsSearchForm(request.GET)
     needs = form.search()
@@ -36,3 +40,6 @@ class NoteCreate(CreateView):
 class NeedCreate(CreateView):
     form_class = NeedsForm
     model = Need
+
+    def get_success_url(self):
+        return "/need/" + str(self.object.id)
