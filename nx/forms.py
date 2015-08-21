@@ -7,12 +7,12 @@ from nx.models import Note,Need
 
 class NeedsSearchForm(SearchForm):
     def no_query_found(self):
-        return self.searchqueryset.all()
+        return self.searchqueryset.filter(type='need')
 
 
 class NotesSearchForm(SearchForm):
     def no_query_found(self):
-        return self.searchqueryset.all()
+        return self.searchqueryset.filter(type='note')
 
 
 BaseNoteForm = modelform_factory(Note, fields=["username", "phone_number","address", "donation_type",

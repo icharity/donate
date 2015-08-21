@@ -16,7 +16,7 @@ def note(request, note_id=None):
     return render_to_response('note_detail.html', {'note': result})
 
 def search_needs(request):
-    form = NotesSearchForm(request.GET)
+    form = NeedsSearchForm(request.GET)
     notes = form.search()
     return render_to_response('needs.html', {'notes': notes})
 
