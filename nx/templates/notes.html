@@ -14,15 +14,19 @@
 <div class="container-fluid col-sm-12">
     <div class="col-sm-12">
        {% for note in notes %}
-           <h2 class="address">{{ note.address }}</h2>
-           <div class="describe">
-               <div class="content">
-                   {{ note.description }}
-                   <span class="like glyphicon glyphicon-heart">
-                   </span>
+        <div class="panel panel-default">
+                <div class="panel-body">
+               <h2 class="address">{{ note.address }}</h2>
+               <div class="describe">
+                   <div class="content">
+                       {{ note.description }}
+                       <span class="like glyphicon glyphicon-heart">
+                       </span>
+                   </div>
+                   <img src="/static/media/{{note.photo}}" width=100% alt=""/>
                </div>
-               <img src="/static/media/{{note.photo}}" width=100% alt=""/>
            </div>
+        </div>
        {% endfor %}
     </div>
 </div>

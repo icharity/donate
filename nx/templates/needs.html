@@ -15,16 +15,21 @@
                 <h1>Needs</h1>
 
                 {% for need in needs %}
-                <div class="need">
-                    <ul class="list-group">
-                        <li class="list-group-item list-group-item-success">Address:{{ need.address }}</li>
-                        <li class="list-group-item list-group-item-info">Contact: {{ need.contact_person }},{{need.contact_person_telephone }}
-                        </li>
-                        <li class="list-group-item list-group-item-warning">Description: {{ need.description }}</li>
-                        <li style="list-style-type: none">
-                            <img src="/static/media/{{need.image}}" width=100% alt=""/>
-                        </li>
-                    </ul>
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="need">
+                            <ul class="list-group">
+                                <li class="list-group-item list-group-item-success">Address:{{ need.address }}</li>
+                                <li class="list-group-item list-group-item-info">Contact: {{ need.contact_person}},{{need.contact_person_telephone }}
+                                </li>
+                                <li class="list-group-item list-group-item-warning">Description: {{ need.description}}
+                                </li>
+                                <li style="list-style-type: none">
+                                    <img src="/static/media/{{need.image}}" width=100% alt=""/>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
                 {% endfor %}
             </div>
