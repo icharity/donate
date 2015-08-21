@@ -1,7 +1,7 @@
 #HackDay Donate
 
 
-##Insall
+##Install
 
 1.Install Deps
 
