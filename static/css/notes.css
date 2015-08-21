@@ -59,3 +59,11 @@ header{
 .span12 .input_id_publisher, .span12 .input_id_username {
     margin-top: 10px;
 }
+
+.detail-describe {
+    font-size: 16px;
+}
+
+.detail-describe img {
+    margin-top: 10px;
+}

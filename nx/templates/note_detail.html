@@ -18,11 +18,10 @@
             <div class="container">
                 <h1>{{ note.phone_number }}</h1>
 
-                <p>
+                <div class="detail-describe">
                     {{ note.description }}
-                    <br/>
                     <img src="{{note.get_photo_url}}" width=100% alt=""/>
-                </p>
+                </div>
             </div>
         </div>
     </div>
