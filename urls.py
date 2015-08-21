@@ -13,12 +13,12 @@ urlpatterns = i18n_patterns("",
 )
 
 urlpatterns += patterns('nx.views',
-    url("^view/$", "notes", name="note"),
-    url("^note/(?P<note_id>\d{1,10})", "note", name="note_detail"),
-    url("^need/(?P<need_id>\d{1,10})", "need", name="need_detail"),
-    url("^create/$",NoteCreate.as_view(success_url="/view/"), name="create"),
-    url("^search-needs/$","search_needs", name="search"),
+    url("^donate/$",NoteCreate.as_view(success_url="/view/"), name="create"),
+    url("^donate/(?P<note_id>\d{1,10})", "note", name="note_detail"),
+    url("^search-donates/$", "notes", name="note"),
     url("^need/$",NeedCreate.as_view(success_url="/view/"), name="need"),
+    url("^need/(?P<need_id>\d{1,10})", "need", name="need_detail"),
+    url("^search-needs/$","search_needs", name="search"),
 )
 
 urlpatterns += patterns('',

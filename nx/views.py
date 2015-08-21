@@ -44,7 +44,7 @@ class NoteCreate(CreateView):
     model = Donate
 
     def get_success_url(self):
-        return "/note/" + str(self.object.id)
+        return "/donate/" + str(self.object.id)
 
 class NeedCreate(CreateView):
     form_class = NeedsForm
