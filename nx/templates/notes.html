@@ -1,6 +1,7 @@
 {% load pages_tags mezzanine_tags i18n future staticfiles %}
 <script src="{% static "mezzanine/js/jquery-1.7.1.min.js" %}"></script>
 <script src="{% static "js/bootstrap.js" %}"></script>
+<script src="{% static "js/notes.js" %}"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}">
@@ -9,21 +10,24 @@
 {% load i18n %}
 
 {% block main %}
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-sm-12">
 
+<div class="container-fluid col-sm-12">
+    <div class="col-sm-12">
+        <form class="search-form" type="get" action=".">
+            <input class="col-sm-10 form-control search-input col-lg-8" type="text" name="q">
+            <button class='btn btn-primary search-button' type="submit">Search</button>
+        </form>
             {% for note in notes %}
-            <h2 class="address">{{ note.address }}</h2>
-
-            <div class="describe">
-                <div class="content">
-                    {{ note.description }}
+                <h2 class="address">{{ note.address }}</h2>
+                <div class="describe">
+                    <div class="content">
+                        {{ note.description }}
+                        <span class="like glyphicon glyphicon-heart">
+                        </span>
+                    </div>
+                    <img src="/static/media/{{note.photo}}" width=100% alt=""/>
                 </div>
-                <img src="/static/media/{{note.photo}}" width=100% alt=""/>
-            </div>
             {% endfor %}
-        </div>
     </div>
 </div>
 {% endblock %}
