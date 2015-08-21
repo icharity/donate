@@ -5,6 +5,14 @@ body {
     padding-top: 0px;
 }
 
+header{
+    background-color: rgba(230, 30, 24, 0.86);
+    padding: 3px 0;
+    margin-bottom: 20px;
+    text-align: center;
+    color: white;
+}
+
 .search-form {
     text-align: center;
     margin: 20px auto;

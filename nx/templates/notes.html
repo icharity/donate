@@ -11,7 +11,11 @@
 
 {% block main %}
 
-<div class="container-fluid col-sm-12">
+<div class="container-fluid">
+    <div class="row">
+    <header>
+        <h1>Thumb Charity</h1>
+    </header>
     <div class="col-sm-12">
        {% for note in notes %}
         <div class="panel panel-default">
@@ -28,6 +32,7 @@
            </div>
         </div>
        {% endfor %}
+    </div>
     </div>
 </div>
 {% endblock %}
