@@ -3,12 +3,11 @@
         $('.title .like').click(function() {
             $(this).toggleClass('active');
             if($(this).hasClass('active')) {
-                $(".panel-body .animation-number").fadeIn('slow');
-                $(".panel-body .animation-number").fadeOut('slow');
+                $(this).parent().find('.animation-number').fadeIn('slow');
+                $(this).parent().find('.animation-number').fadeOut('slow');
             }
         });
 
         $('.selectpicker').selectpicker();
-        console.log('laladfs');
     });
 })();
