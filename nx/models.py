@@ -19,15 +19,15 @@ class Donate(models.Model):
     phone_number = models.CharField("手机号", max_length=11,
                                     validators=[
                                         validators.RegexValidator(re.compile('^\+?1?\d{9,15}$'),
-                                                                  _('Enter a valid Phone Number.'), 'invalid')
+                                                                  _('请输入有效的电话号码'), 'invalid')
                                     ])
 
-    address = models.CharField("地址", max_length=10)
-    donation_type = models.CharField("类型", max_length=1000)
-    new = models.BooleanField("新/旧", default=False)
+    address = models.CharField("地址", max_length=100)
+    donation_type = models.CharField("类型", max_length=10)
+    new = models.BooleanField("新", default=False, help_text="捐赠物品是不是新的")
     number = models.IntegerField("数量", max_length=10)
     photo = models.ImageField(upload_to=get_upload_file_name,
-                              help_text="Upload a zip file containing images, and they'll be imported into this gallery.")
+                              help_text="选择图片")
     description = models.TextField("简介")
     timestamp = models.DateTimeField(auto_now=True)
     validate = models.BooleanField("是否验证", default=False)
@@ -45,17 +45,17 @@ class Need(models.Model):
     publisher_phone_number = models.CharField("手机号", max_length=11,
                                     validators=[
                                         validators.RegexValidator(re.compile('^\+?1?\d{9,15}$'),
-                                                                  _('Enter a valid Phone Number.'), 'invalid')
+                                                                  _('请输入有效的电话号码'), 'invalid')
                                     ])
 
     image = models.ImageField(upload_to=get_upload_file_name,
-                              help_text="Upload a zip file containing images, and they'll be imported into this gallery.")
+                              help_text="选择图片")
     address = models.CharField("地址", max_length=20)
     contact_person = models.CharField("联系人", max_length=11)
     contact_person_telephone = models.CharField("联系人手机号", max_length=11,
                                     validators=[
                                         validators.RegexValidator(re.compile('^\+?1?\d{9,15}$'),
-                                                                  _('Enter a valid contact person Phone Number.'), 'invalid')
+                                                                  _('请输入有效的电话号码'), 'invalid')
                                     ])
     description = models.TextField("简介")
     type = models.CharField("类型", max_length=10, default='need')
