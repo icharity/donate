@@ -17,8 +17,8 @@ def note(request, note_id=None):
 
 def search_needs(request):
     form = NeedsSearchForm(request.GET)
-    notes = form.search()
-    return render_to_response('needs.html', {'notes': notes})
+    needs = form.search()
+    return render_to_response('needs.html', {'needs': needs})
 
 class NoteCreate(CreateView):
     """
