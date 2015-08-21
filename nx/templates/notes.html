@@ -19,13 +19,16 @@
     <div class="col-sm-12">
        {% for note in notes %}
         <div class="panel panel-default">
-                <div class="panel-body">
-               <h2 class="address">{{ note.address }}</h2>
+           <div class="panel-body">
+               <div class="title">
+                   <h2 class="address">{{ note.address }}</h2>
+                   <span class="like glyphicon glyphicon-heart">
+                   </span>
+                   <span class="animation-number">+1</span>
+               </div>
                <div class="describe">
                    <div class="content">
                        {{ note.description }}
-                       <span class="like glyphicon glyphicon-heart">
-                       </span>
                    </div>
                    <img src="/static/media/{{note.photo}}" width=100% alt=""/>
                </div>

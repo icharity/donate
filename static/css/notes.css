@@ -38,14 +38,27 @@ header{
     margin-bottom: 20px;
 }
 
-.describe span {
-    font-size: 18px;
+.panel-body .title {
+    text-align: center;
 }
 
-.describe span.active {
+.panel-body .title .address {
+    display: inline-block;
+}
+
+.panel-body .title .like {
+    font-size: 24px;
+}
+
+.panel-body .title .like.active {
     color: red;
 }
 
+.panel-body .animation-number {
+    display: none;
+    position: absolute;
+    color: red;
+}
 
 .describe .content {
     margin-top: 10px;
