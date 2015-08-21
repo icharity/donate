@@ -6,4 +6,5 @@
 local_settings.py
 /static/media
 .idea
+/static
 *.sqlite3
