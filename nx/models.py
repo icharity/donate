@@ -11,7 +11,7 @@ from django.db import models
 
 
 def get_upload_file_name(instance, filename):
-    return "static/media/galleries/%s_%s" % (str(time()).replace('.', '_'), filename)
+    return "galleries/%s_%s" % (str(time()).replace('.', '_'), filename)
 
 
 class Note(models.Model):
