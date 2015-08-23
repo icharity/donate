@@ -15,11 +15,7 @@
 	brew install gdal
 	brew install libgeoip
 
-3.Create Database
-
-    python manage.py syncdb
-
-4.Create ``local_settings.py``
+3.Create ``local_settings.py``
 
 ```python
 DEBUG = True
@@ -56,6 +52,11 @@ HAYSTACK_CONNECTIONS = {
 }
 ```
 
+4.Create Database
+
+    python manage.py createdb
+    python manage.py migrate
+    
 5.Run
  
 	python manage.py runserver    
